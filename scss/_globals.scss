@@ -1,0 +1,218 @@
+@use "variables" as *;
+
+@font-face {
+  font-family: "HankenGrotesk";
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("assets/fonts/HankenGrotesk-VariableFont_wght.ttf")
+    format("truetype");
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  font-family: $font-default;
+  font-style: normal;
+  line-height: normal;
+}
+
+main {
+  height: 100vh;
+  background-color: $pale-blue;
+
+  @media (min-width: $breakpoint) {
+    display: grid;
+    place-items: center;
+  }
+}
+
+.grid-flow {
+  display: grid;
+  align-content: start;
+  gap: 0.5rem;
+
+  @media (min-width: $breakpoint) {
+    align-content: space-around;
+  }
+}
+
+.grid-flow--large {
+  gap: 1.5rem;
+}
+
+.flex-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.result-summary {
+  max-width: 46rem;
+  display: grid;
+  border-radius: $card-bradius;
+  background-color: $white;
+
+  @media (min-width: $breakpoint) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.section-title {
+  font-size: $fs-md;
+  font-weight: $fw-bold;
+}
+
+.results {
+  padding: $padding-mobile;
+  border-radius: 0 0 $card-bradius $card-bradius;
+  background: $gradient-primary;
+  color: $light-lavender;
+  font-weight: $fw-regular;
+  text-align: center;
+
+  @media (min-width: $breakpoint) {
+    border-radius: $card-bradius;
+  }
+}
+
+.result-score {
+  display: grid;
+  place-content: center;
+  width: 8.75rem;
+  border-radius: 50%;
+  margin-inline: auto;
+  background: $gradient-secondary;
+  font-size: $fs-mobile-sm;
+  font-weight: $fw-bold;
+  aspect-ratio: 1 / 1;
+
+  span {
+    display: block;
+    font-size: $fs-mobile-xl;
+    font-weight: $fw-black;
+    line-height: 1.2857;
+    color: $white;
+  }
+}
+
+.result-rank {
+  color: $white;
+  font-size: $fs-mobile-lg;
+  font-weight: $fw-bold;
+
+  + p {
+    margin-bottom: 0.5rem;
+    margin-inline: 2rem;
+    line-height: 1.4;
+  }
+}
+
+.summary {
+  padding: $padding-mobile + 0.5rem;
+
+  &-score {
+    color: rgba($dark-gray-blue, 0.5);
+    font-weight: $fw-bold;
+
+    span {
+      color: $dark-gray-blue;
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: $summary-item-bradius;
+
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
+  }
+
+  &-title {
+    font-weight: $fw-regular;
+    line-height: normal;
+  }
+
+  &--reaction {
+    background-color: rgba($light-red, 0.1);
+
+    svg {
+      stroke: $light-red;
+    }
+
+    h3 {
+      color: $light-red;
+    }
+  }
+
+  &--memory {
+    background-color: rgba($orangey-yellow, 0.1);
+
+    svg {
+      stroke: $orangey-yellow;
+    }
+
+    h3 {
+      color: $orangey-yellow;
+    }
+  }
+
+  &--verbal {
+    background-color: rgba($green-teal, 0.1);
+
+    svg {
+      stroke: $green-teal;
+    }
+
+    h3 {
+      color: $green-teal;
+    }
+  }
+
+  &--visual {
+    background-color: rgba($cobalt-blue, 0.1);
+
+    svg {
+      stroke: $cobalt-blue;
+    }
+
+    h3 {
+      color: $cobalt-blue;
+    }
+  }
+}
+
+.button {
+  padding: 1rem;
+  background: $dark-gray-blue;
+  border-radius: $btn-bradius;
+  color: $white;
+  font-size: $fs-sm;
+  font-weight: $fw-bold;
+  border: 0;
+  cursor: pointer;
+
+  &:hover {
+    background: $gradient-primary;
+  }
+}
